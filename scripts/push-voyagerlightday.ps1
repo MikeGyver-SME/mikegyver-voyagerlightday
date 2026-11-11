@@ -4,7 +4,7 @@
   TestFlight build workflow).
 
 .DESCRIPTION
-  1. Uses the extracted voyager-lightday-ios-v1.0.1\voyager-lightday-ios folder as the source of truth.
+  1. Uses the extracted voyager-lightday-ios-v1.0.3\voyager-lightday-ios folder as the source of truth.
   2. Clones MikeGyver-SME/mikegyver-voyagerlightday if needed (else pulls main).
   3. Copies the source in, commits, pushes.
   4. Creates and pushes the version tag -> the "Build and upload Voyager Light-Day to
@@ -15,7 +15,7 @@
   (with ITSAppUsesNonExemptEncryption = NO).
 
 .PARAMETER SourceDir
-  The extracted source folder. Defaults to E:\Downloads when it exists, else your shell Downloads folder\voyager-lightday-ios-v1.0.1\voyager-lightday-ios
+  The extracted source folder. Defaults to E:\Downloads when it exists, else your shell Downloads folder\voyager-lightday-ios-v1.0.3\voyager-lightday-ios
   (resolved via the Windows shell, so relocated Downloads folders work).
 
 .PARAMETER RepoDir
@@ -23,27 +23,27 @@
   user profile.
 
 .PARAMETER Tag
-  Version tag to create and push, e.g. v1.0.1. The workflow runs on tags
+  Version tag to create and push, e.g. v1.0.3. The workflow runs on tags
   matching v*.
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File .\push-voyagerlightday.ps1
-  # uses defaults, tags v1.0.1
+  # uses defaults, tags v1.0.3
 
 .EXAMPLE
-  powershell -ExecutionPolicy Bypass -File .\push-voyagerlightday.ps1 -Tag v1.0.1
+  powershell -ExecutionPolicy Bypass -File .\push-voyagerlightday.ps1 -Tag v1.0.3
 #>
 param(
-    [string]$SourceDir = (Join-Path (& { if (Test-Path 'E:\Downloads') { 'E:\Downloads' } else { try { (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path } catch { "$env:USERPROFILE\Downloads" } } }) 'voyager-lightday-ios-v1.0.1\voyager-lightday-ios'),
+    [string]$SourceDir = (Join-Path (& { if (Test-Path 'E:\Downloads') { 'E:\Downloads' } else { try { (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path } catch { "$env:USERPROFILE\Downloads" } } }) 'voyager-lightday-ios-v1.0.3\voyager-lightday-ios'),
     [string]$RepoDir   = (Join-Path $env:USERPROFILE 'source\repos\mikegyver-voyagerlightday'),
-    [string]$Tag       = 'v1.0.1'
+    [string]$Tag       = 'v1.0.3'
 )
 
 $ErrorActionPreference = 'Stop'
 $RepoSlug = 'MikeGyver-SME/mikegyver-voyagerlightday'
 
 if (-not (Test-Path $SourceDir)) {
-    throw "Source folder not found: $SourceDir`nExtract voyager-lightday-ios-v1.0.1.zip first."
+    throw "Source folder not found: $SourceDir`nExtract voyager-lightday-ios-v1.0.3.zip first."
 }
 
 # --- 1. Clone or update ------------------------------------------------------

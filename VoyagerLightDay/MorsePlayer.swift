@@ -15,6 +15,10 @@ final class MorsePlayer: ObservableObject {
     @Published var flashOn = false
     @Published var currentLetter: Character? = nil
     @Published var statusText = ""
+    /// What the tone engine is doing — shown in the app, so a tone
+    /// failure is visible instead of silent. Empty until the engine
+    /// is first started.
+    @Published var toneStatus = ""
 
     private var playTask: Task<Void, Never>?
     private var engine: AVAudioEngine?
@@ -44,6 +48,24 @@ final class MorsePlayer: ObservableObject {
         isPlaying = false
         statusText = ""
         stopToneEngine()
+    }
+
+    /// Play a 1-second 620 Hz beep on demand, through the same tone
+    /// engine the sends use — a quick audibility check without
+    /// running a full send. Torch and screen stay out of it.
+    func testTone() {
+        startToneEngine()
+        guard let node = playerNode, engine?.isRunning == true else {
+            if toneStatus.isEmpty {
+                toneStatus = "Tone engine did not start."
+            }
+            return
+        }
+        Task {
+            node.volume = 0.9
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            node.volume = 0.0
+        }
     }
 
     // MARK: - Playback
@@ -77,6 +99,9 @@ final class MorsePlayer: ObservableObject {
                     }
                     await hold(on: true, element == "." ? MorseCode.unit : MorseCode.unit * 3)
                 }
+                // Letter done: clear it for the gap before the next one,
+                // so each letter shows once, steady, instead of lingering.
+                currentLetter = nil
                 previousWasLetter = true
                 first = false
             }
@@ -125,7 +150,10 @@ final class MorsePlayer: ObservableObject {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            // Tone may fail on a silent / restricted device; torch + screen still run.
+            // The session is what makes the tone audible at all — if
+            // this fails, say so instead of failing silently.
+            toneStatus = "Audio session error: \(error.localizedDescription)"
+            return
         }
         if engine == nil {
             let engine = AVAudioEngine()
@@ -133,6 +161,7 @@ final class MorsePlayer: ObservableObject {
             let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
             engine.attach(node)
             engine.connect(node, to: engine.mainMixerNode, format: format)
+            engine.mainMixerNode.outputVolume = 1.0
             node.scheduleBuffer(sineBuffer(frequency: Self.toneFrequency, format: format),
                                 at: nil, options: .loops)
             node.volume = 0.0
@@ -140,10 +169,12 @@ final class MorsePlayer: ObservableObject {
             self.playerNode = node
         }
         do {
+            engine?.prepare()
             try engine?.start()
             playerNode?.play()
+            toneStatus = "Tone ready"
         } catch {
-            // Tone unavailable; torch + screen still run.
+            toneStatus = "Tone engine error: \(error.localizedDescription)"
         }
     }
 

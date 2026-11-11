@@ -1,4 +1,4 @@
-# Voyager Light-Day — iOS app (v1.0.1)
+# Voyager Light-Day — iOS app (v1.0.3)
 
 A native iOS countdown to the moment Voyager 1 becomes the first
 human-made object one light-day from Earth — **Wed, Nov 18, 2026 at
@@ -83,3 +83,12 @@ paste it back and I'll fix it the same turn.
   is `async throws`, so the reminder call is now `try? await`. Also
   removed a stray unassigned icon file that actool warned about.
   No behavior change.
+- **v1.0.2** (build 3) — The on-screen letter is now steady for the
+  whole letter instead of blinking once per dit/dah; only the white
+  flash pulses per element. No change to the torch, the tone, or the
+  Morse timing.
+- **v1.0.3** (build 4) — Tone diagnosis: a Test Tone button plays a
+  1-second 620 Hz beep on demand, and the app now shows the tone
+  engine's status — a failed audio session or engine start used to
+  fail silently, leaving torch + flash with no sound and no clue.
+  Also calls `prepare()` and sets the mixer volume explicitly.

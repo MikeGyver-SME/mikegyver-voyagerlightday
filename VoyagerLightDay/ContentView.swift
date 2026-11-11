@@ -66,15 +66,18 @@ struct ContentView: View {
                 .padding(.top, 24)
             }
 
-            // The screen flash: full-screen white while an element is on,
-            // with the letter being sent in the middle.
+            // The screen flash: full-screen white while an element is on.
             if player.flashOn {
                 Color.white.ignoresSafeArea()
-                if let letter = player.currentLetter {
-                    Text(String(letter))
-                        .font(.system(size: 160, weight: .black, design: .rounded))
-                        .foregroundStyle(.black)
-                }
+            }
+            // The letter being sent: steady for the whole letter, changing
+            // only when the next letter starts. The white flash pulses
+            // behind it per dit/dah; between flashes the letter shows
+            // white on black, so it never blinks out mid-letter.
+            if let letter = player.currentLetter, letter != " " {
+                Text(String(letter))
+                    .font(.system(size: 160, weight: .black, design: .rounded))
+                    .foregroundStyle(player.flashOn ? .black : .white)
             }
         }
         .foregroundStyle(.white)
@@ -208,6 +211,22 @@ struct ContentView: View {
                 Button("Stop") { player.stop() }
                     .buttonStyle(.bordered)
                     .tint(.red)
+            } else {
+                Button {
+                    player.testTone()
+                } label: {
+                    Label("Test Tone (1 sec)", systemImage: "speaker.wave.2.fill")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                }
+                .buttonStyle(.bordered)
+                .tint(.yellow)
+            }
+            if !player.toneStatus.isEmpty {
+                Text(player.toneStatus)
+                    .font(.footnote)
+                    .foregroundStyle(player.toneStatus.contains("error") ? .red : .white.opacity(0.65))
             }
             Text("Full send (V-G-R + message): about \(Int(MorseCode.duration(for: fullSendText).rounded())) seconds")
                 .font(.footnote)
