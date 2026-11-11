@@ -197,7 +197,10 @@ enum VoyagerNotifications {
             let trigger = UNCalendarNotificationTrigger(
                 dateMatching: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: item.date),
                 repeats: false)
-            center.add(UNNotificationRequest(identifier: item.id, content: content, trigger: trigger))
+            // Xcode 26 / iOS 26 SDK: add(_:) is async throws, not the
+            // old fire-and-forget call. A failed schedule is non-fatal —
+            // the in-app T-0 flash still works without the notification.
+            try? await center.add(UNNotificationRequest(identifier: item.id, content: content, trigger: trigger))
         }
     }
 }

@@ -1,4 +1,4 @@
-# Voyager Light-Day — iOS app (v1.0.0)
+# Voyager Light-Day — iOS app (v1.0.1)
 
 A native iOS countdown to the moment Voyager 1 becomes the first
 human-made object one light-day from Earth — **Wed, Nov 18, 2026 at
@@ -79,3 +79,7 @@ paste it back and I'll fix it the same turn.
 
 - **v1.0.0** — First build. Countdown, T-0 auto-flash, Play V-G-R
   Now, 20-char custom message, stay-awake, T-5 / T-0 reminders.
+- **v1.0.1** (build 2) — Fix: on Xcode 26, scheduling a notification
+  is `async throws`, so the reminder call is now `try? await`. Also
+  removed a stray unassigned icon file that actool warned about.
+  No behavior change.
