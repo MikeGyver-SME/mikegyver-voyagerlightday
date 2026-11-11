@@ -1,4 +1,4 @@
-# Voyager Light-Day iOS v1.0.3 — TestFlight Deployment
+# Voyager Light-Day iOS v1.0.4 — TestFlight Deployment
 
 Bundle ID: `studio.mikegyver.voyagerlightday`
 iOS 17.0+ · SwiftUI · No server, no third-party deps
@@ -16,8 +16,8 @@ Pipeline: GitHub Actions → fastlane → TestFlight (same proven pipeline as SS
 
 ## 0. Prep on your Windows machine
 
-Extract `voyager-lightday-ios-v1.0.3.zip` to your Downloads folder, so
-you have `E:\Downloads\voyager-lightday-ios-v1.0.3\voyager-lightday-ios`
+Extract `voyager-lightday-ios-v1.0.4.zip` to your Downloads folder, so
+you have `E:\Downloads\voyager-lightday-ios-v1.0.4\voyager-lightday-ios`
 (E:\Downloads is your permanent Downloads folder; fall back to the
 shell Downloads folder if E: is not there.)
 
@@ -79,13 +79,13 @@ the workflow with no code change.
 powershell -ExecutionPolicy Bypass -File .\push-voyagerlightday.ps1
 ```
 
-Defaults: source `E:\Downloads\voyager-lightday-ios-v1.0.3\voyager-lightday-ios`,
-local clone `~\source\repos\mikegyver-voyagerlightday`, tag `v1.0.3`.
+Defaults: source `E:\Downloads\voyager-lightday-ios-v1.0.4\voyager-lightday-ios`,
+local clone `~\source\repos\mikegyver-voyagerlightday`, tag `v1.0.4`.
 
 What the script does:
 1. Clones `MikeGyver-SME/mikegyver-voyagerlightday` if needed, else pulls `main`
 2. Copies the source in (excluding `.git`), commits, pushes `main`
-3. Creates and pushes tag `v1.0.3` — the tag push triggers the
+3. Creates and pushes tag `v1.0.4` — the tag push triggers the
    "Build and upload Voyager Light-Day to TestFlight" workflow
 
 Watch it at: https://github.com/MikeGyver-SME/mikegyver-voyagerlightday/actions
@@ -118,13 +118,13 @@ Watch it at: https://github.com/MikeGyver-SME/mikegyver-voyagerlightday/actions
 ## Version bumps
 
 Edit `VoyagerLightDay.xcodeproj/project.pbxproj`: bump
-`MARKETING_VERSION` (e.g. `1.0.4`) and `CURRENT_PROJECT_VERSION`
+`MARKETING_VERSION` (e.g. `1.0.5`) and `CURRENT_PROJECT_VERSION`
 (build number must be higher than every build already uploaded for
 this version — TestFlight rejects a duplicate version + build pair).
 Then:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\push-voyagerlightday.ps1 -Tag v1.0.4
+powershell -ExecutionPolicy Bypass -File .\push-voyagerlightday.ps1 -Tag v1.0.5
 ```
 
 ## If the first build fails

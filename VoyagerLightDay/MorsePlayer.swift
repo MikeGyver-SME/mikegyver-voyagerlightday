@@ -146,6 +146,7 @@ final class MorsePlayer: ObservableObject {
     // MARK: - Tone (620 Hz sine, looped buffer, volume-gated)
 
     private func startToneEngine() {
+        let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -158,16 +159,25 @@ final class MorsePlayer: ObservableObject {
         if engine == nil {
             let engine = AVAudioEngine()
             let node = AVAudioPlayerNode()
-            let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
             engine.attach(node)
             engine.connect(node, to: engine.mainMixerNode, format: format)
             engine.mainMixerNode.outputVolume = 1.0
-            node.scheduleBuffer(sineBuffer(frequency: Self.toneFrequency, format: format),
-                                at: nil, options: .loops)
             node.volume = 0.0
             self.engine = engine
             self.playerNode = node
         }
+        // Re-schedule the looped tone on EVERY start, not just at
+        // creation: playerNode.stop() — which every stop() does, and
+        // which play() calls before every send — discards the
+        // scheduled buffers. Without this, the tone works exactly
+        // once (the first Test Tone) and then never again until the
+        // app is relaunched: the send restarts the engine with no
+        // sound scheduled, so the torch flashes in silence, and the
+        // Test Tone stays silent afterwards too.
+        playerNode?.stop()
+        playerNode?.scheduleBuffer(sineBuffer(frequency: Self.toneFrequency, format: format),
+                                   at: nil, options: .loops)
+        playerNode?.volume = 0.0
         do {
             engine?.prepare()
             try engine?.start()

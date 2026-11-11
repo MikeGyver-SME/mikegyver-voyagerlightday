@@ -1,4 +1,4 @@
-# Voyager Light-Day — iOS app (v1.0.3)
+# Voyager Light-Day — iOS app (v1.0.4)
 
 A native iOS countdown to the moment Voyager 1 becomes the first
 human-made object one light-day from Earth — **Wed, Nov 18, 2026 at
@@ -92,3 +92,9 @@ paste it back and I'll fix it the same turn.
   engine's status — a failed audio session or engine start used to
   fail silently, leaving torch + flash with no sound and no clue.
   Also calls `prepare()` and sets the mixer volume explicitly.
+- **v1.0.4** (build 5) — The actual tone fix. The Test Tone proved
+  the engine could sound, but every send was silent and the Test
+  Tone went silent after any stop: `playerNode.stop()` discards
+  the scheduled looped buffer, and the buffer was only scheduled
+  once, at engine creation. The tone is now re-scheduled on every
+  engine start, so it survives stops and repeated sends.
