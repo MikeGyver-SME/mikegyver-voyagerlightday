@@ -1,0 +1,221 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		E41450775F288121E987FD74 /* VoyagerLightDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9951C7CCB02172F6E8993FC /* VoyagerLightDayApp.swift */; };
+		D5BACAAA084FB75DBD1B24FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE47CF4E79DB12A27838EA /* ContentView.swift */; };
+		6A5B9D5FAC9631E866617CFC /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CAA8DC8A50F769BD6B2DBB /* MorseCode.swift */; };
+		078E7C4834ED84992BDC087B /* MorsePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A5CB31E7251914002B781 /* MorsePlayer.swift */; };
+		4C1698D61E3154D90F9A7798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D507A0FF26EBEB8B3C5FFA /* Assets.xcassets */; };
+		B9951C7CCB02172F6E8993FC /* VoyagerLightDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyagerLightDayApp.swift; sourceTree = "<group>"; };
+		D4AE47CF4E79DB12A27838EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		62CAA8DC8A50F769BD6B2DBB /* MorseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
+		5C3A5CB31E7251914002B781 /* MorsePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorsePlayer.swift; sourceTree = "<group>"; };
+		45D507A0FF26EBEB8B3C5FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C70B04495A74BDCF68511D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F109338BD9E43CF6DCDDAAF4 /* VoyagerLightDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoyagerLightDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5E7A8E9D809612858D1C6C5 = {
+			isa = PBXGroup;
+			children = (
+				366B05640FB274009FC69ECA /* VoyagerLightDay */,
+				00C9F975F0E327248FA020CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		366B05640FB274009FC69ECA = {
+			isa = PBXGroup;
+			children = (
+				B9951C7CCB02172F6E8993FC /* VoyagerLightDayApp.swift */,
+				D4AE47CF4E79DB12A27838EA /* ContentView.swift */,
+				62CAA8DC8A50F769BD6B2DBB /* MorseCode.swift */,
+				5C3A5CB31E7251914002B781 /* MorsePlayer.swift */,
+				45D507A0FF26EBEB8B3C5FFA /* Assets.xcassets */,
+				1C70B04495A74BDCF68511D0 /* Info.plist */,
+			);
+			path = VoyagerLightDay;
+			sourceTree = "<group>";
+		};
+		00C9F975F0E327248FA020CE = {
+			isa = PBXGroup;
+			children = (
+				F109338BD9E43CF6DCDDAAF4 /* VoyagerLightDay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1BE79610669D30F636181C7B /* VoyagerLightDay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44531AA93DD7592074B813B /* Build configuration list for PBXNativeTarget "VoyagerLightDay" */;
+			buildPhases = (
+				527907C34090A4DC41E8F294 /* Sources */,
+				4B9AC7D353898E637D345CFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoyagerLightDay;
+			productName = VoyagerLightDay;
+			productReference = F109338BD9E43CF6DCDDAAF4 /* VoyagerLightDay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		782EED3B136738B8C11F3D6B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					1BE79610669D30F636181C7B = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 6BF8B66DA3F569AB7C3CB50F /* Build configuration list for PBXProject "VoyagerLightDay" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5E7A8E9D809612858D1C6C5;
+			productRefGroup = 00C9F975F0E327248FA020CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BE79610669D30F636181C7B /* VoyagerLightDay */,
+			);
+		};
+		527907C34090A4DC41E8F294 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E41450775F288121E987FD74 /* VoyagerLightDayApp.swift in Sources */,
+				D5BACAAA084FB75DBD1B24FC /* ContentView.swift in Sources */,
+				6A5B9D5FAC9631E866617CFC /* MorseCode.swift in Sources */,
+				078E7C4834ED84992BDC087B /* MorsePlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B9AC7D353898E637D345CFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C1698D61E3154D90F9A7798 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86B57E92FC6D09087112C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFBAFEFA8D0CF6184A15E8D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33EC6CB3BA1009AF2800BB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VoyagerLightDay/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.mikegyver.voyagerlightday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMBED_LIBRARIES_WITH_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		520AD2FB4B62832DE08D1EBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VoyagerLightDay/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.mikegyver.voyagerlightday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMBED_LIBRARIES_WITH_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6BF8B66DA3F569AB7C3CB50F /* Build configuration list for PBXProject "VoyagerLightDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B86B57E92FC6D09087112C7 /* Debug */,
+				CFBAFEFA8D0CF6184A15E8D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44531AA93DD7592074B813B /* Build configuration list for PBXNativeTarget "VoyagerLightDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EC6CB3BA1009AF2800BB9C /* Debug */,
+				520AD2FB4B62832DE08D1EBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+	};
+	rootObject = 782EED3B136738B8C11F3D6B /* Project object */;
+}
